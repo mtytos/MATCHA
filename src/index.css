@@ -29,17 +29,15 @@ code {
   border: 2px solid #f50057;
 }
 
+/* Dialog styles */
 .card .card-image img {
   width: 100%;
   overflow: hidden;
 }
 
-.collection .collection-item.avatar p {
+.collection .collection-item.avatar {
   margin-top: 10px;
-}
-
-.row {
-  margin-bottom: 0;
+  min-height: 50px;
 }
 
 .dg-img {
@@ -47,6 +45,9 @@ code {
   height: 42px;
   border-radius: 50%;
   overflow: hidden;
+  position: absolute;
+  left: 15px;
+  bottom: 8px;
 }
 
 .dg-img img {
@@ -56,6 +57,7 @@ code {
   /*object-position: 0 0;*/
 }
 
+/*Avatar and Gallery styles */
 .card-image {
   /*width: inherit;*/
   height: 300px;
@@ -67,6 +69,11 @@ code {
   object-fit: cover;
 }
 
+/* basic styles */
 .someright {
   margin-left: 10px;
+}
+
+.row {
+  margin-bottom: 0;
 }
