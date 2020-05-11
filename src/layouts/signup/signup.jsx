@@ -1,5 +1,5 @@
 import React from "react";
-import ButtonForm from "../../components/btn-form/btn-form";
+import ButtonForm from "../../components/btn/btn-submit";
 
 const Signup = () => {
 

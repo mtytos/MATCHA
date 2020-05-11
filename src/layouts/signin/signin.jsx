@@ -1,6 +1,6 @@
 import React from "react";
-import ButtonForm from "../../components/btn-form/btn-form";
-import InputForm from "../../components/input-form/input-form";
+import ButtonForm from "../../components/btn/btn-submit";
+import InputForm from "../../components/input/input-form";
 import {Link} from "react-router-dom";
 
 const Signin = () => {

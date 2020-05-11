@@ -1,6 +1,6 @@
 import React from "react";
 
-const ButtonForm = (props) => {
+const ButtonSubmit = (props) => {
 
     return (
         <div className="container left someright">
@@ -9,4 +9,4 @@ const ButtonForm = (props) => {
     );
 }
 
-export default ButtonForm;
+export default ButtonSubmit;

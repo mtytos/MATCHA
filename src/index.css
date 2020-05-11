@@ -68,12 +68,18 @@ code {
 
 .opponent-view p {
   margin: 8px;
+  word-wrap: break-word;
 }
 
 .user-view {
   background-color: #eeeeee;
   border-radius: 20px;
   margin-bottom: 15px;
+}
+
+.user-view p {
+  margin: 8px;
+  word-wrap: break-word;
 }
 
 .input-field .prefix.active {
