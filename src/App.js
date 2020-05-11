@@ -7,6 +7,7 @@ import Signup from "./layouts/signup/signup";
 import Signin from "./layouts/signin/signin";
 import Home from "./layouts/home/home";
 import Messages from "./layouts/messages/messages";
+import Dialog from "./layouts/dialog/dialog";
 
 
 class App extends Component {
@@ -21,6 +22,7 @@ class App extends Component {
                             <Route exact path='/signup' component={Signup}/>
                             <Route exact path='/home' component={Home}/>
                             <Route exact path='/messages' component={Messages}/>
+                            <Route exact path='/dialog' component={Dialog}/>
                         </Switch>
                     </div>
                     <div className="App-footer">

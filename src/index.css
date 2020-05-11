@@ -29,7 +29,7 @@ code {
   border: 2px solid #f50057;
 }
 
-/* Dialog styles */
+/* Messages styles */
 .card .card-image img {
   width: 100%;
   overflow: hidden;
@@ -55,6 +55,56 @@ code {
   height: 100%;
   object-fit: cover;
   /*object-position: 0 0;*/
+}
+
+
+/* Dialog styles */
+
+.opponent-view {
+  background-color: #eeeeee;
+  border-radius: 20px;
+  margin-bottom: 15px;
+}
+
+.opponent-view p {
+  margin: 8px;
+}
+
+.user-view {
+  background-color: #eeeeee;
+  border-radius: 20px;
+  margin-bottom: 15px;
+}
+
+.input-field .prefix.active {
+  color: #f50057;
+}
+
+textarea.materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid #f50057;
+  box-shadow: 0 1px 0 0 #f50057;
+}
+
+textarea.materialize-textarea:focus:not([readonly])+label {
+  color: #f50057;
+}
+
+/*.user-view p {*/
+/*  margin: 8px;*/
+/*  text-align: left;*/
+/*}*/
+
+/*.user-view .msg-time {*/
+/*  text-align: right;*/
+/*}*/
+
+.msg-time {
+  font-size: 0.8em;
+  color: #535353;
+}
+
+.dg-textarea {
+  width: 100% !important;
 }
 
 /*Avatar and Gallery styles */
