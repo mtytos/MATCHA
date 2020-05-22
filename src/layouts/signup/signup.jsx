@@ -1,7 +1,25 @@
 import React from "react";
 import ButtonForm from "../../components/btn/btn-submit";
+import {CreateUser} from "../../api/getUserData";
 
 const Signup = () => {
+
+    // const url = 'http://84.201.166.200:8080/api/v1/signup';
+    // const data = {
+    //     "email": "roma@gmail.com",
+    //     "phone": "89998887766",
+    //     "password": "123",
+    //     "username": "Roma",
+    //     "age": 20,
+    //     "gender": "male",
+    //     "country": "Russia",
+    //     "city": "Moscow",
+    //     "max_dist": 50,
+    //     "look_for": "male",
+    //     "min_age": 21,
+    //     "max_age": 30,
+    //     "images":[]
+    // };
 
     return (
         <div className="container left-align">

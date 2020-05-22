@@ -2,6 +2,13 @@ import React from "react";
 import ButtonForm from "../../components/btn/btn-submit";
 import InputForm from "../../components/input/input-form";
 import {Link} from "react-router-dom";
+import {getUserData} from "../../api/getUserData";
+
+const url = 'http://84.201.166.200:8080/api/v1/signin';
+const data = {
+    "email": "lexi@gmail.com",
+    "password": "123"
+};
 
 const Signin = () => {
 

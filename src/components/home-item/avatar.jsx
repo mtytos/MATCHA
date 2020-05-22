@@ -7,7 +7,7 @@ const AvatarCard = (props) => {
             <div className="card">
                 <div className="card-image">
                     <img src={props.ava} alt="avatar"/>
-                    <a className="btn-floating halfway-fab waves-effect waves-light pink accent-3 pulse"><i
+                    <a href="#!" className="btn-floating halfway-fab waves-effect waves-light pink accent-3 pulse"><i
                         className="material-icons">sms</i></a>
                 </div>
                 <div className="card-content center">

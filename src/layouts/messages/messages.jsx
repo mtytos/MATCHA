@@ -1,5 +1,4 @@
 import React from "react";
-import {Link} from "react-router-dom";
 import DialogList from "../../components/dialog-item/dialog-list";
 
 const Messages = () => {
