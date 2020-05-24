@@ -1,42 +1,36 @@
-import React, {useContext} from "react";
-import {UserContext} from "../context/UserContext";
-import {signin} from "../actions/userAction";
+import {signupURL} from "./env";
 
-export const  GetUserData = async (url, data) => {
-
-    const {dispatch} = useContext(UserContext);
-
-    try {
-        const response = await fetch(url, {
-            method: 'POST',
-            body: JSON.stringify(data),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
-        const json = await response.json();
-        console.log('Успех:', JSON.stringify(json));
-        dispatch(signin(
-            json.data.id,
-            json.data.email,
-            json.data.phone,
-            json.data.username,
-            json.data.age,
-            json.data.gender,
-            json.data.country,
-            json.data.city,
-            json.data.max_dist,
-            json.data.look_for,
-            json.data.min_age,
-            json.data.max_age,
-            json.data.images
-        ));
-    } catch (error) {
-        console.error('Ошибка:', error);
-    }
+export async function GetUserData (data, url) {
+    const response = await fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+    const json = await response.json();
+    return JSON.stringify(json);
 }
 
-export const  CreateUser = async (url, data) => {
+export const CreateUser = async (e, url = signupURL) => {
+    e.preventDefault();
+    let data = {
+        "username": e.target.elements.username.value,
+        "age": parseInt(e.target.elements.age.value),
+        "gender": e.target.elements.gender.value,
+        "country": e.target.elements.country.value,
+        "city": e.target.elements.city.value,
+        "phone": e.target.elements.phone.value,
+
+        "look_for": e.target.elements.look_for.value,
+        "min_age": parseInt(e.target.elements.min_age.value),
+        "max_age": parseInt(e.target.elements.max_age.value),
+        "max_dist": parseInt(e.target.elements.max_dist.value),
+
+        "email": e.target.elements.email.value,
+        "password": e.target.elements.password.value
+    }
+
     try {
         const response = await fetch(url, {
             method: 'POST',

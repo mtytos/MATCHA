@@ -1,21 +1,39 @@
-import React from "react";
+import React, {useContext} from "react";
 import ButtonForm from "../../components/btn/btn-submit";
 import InputForm from "../../components/input/input-form";
+import {UserContext} from "../../context/UserContext";
 import {Link} from "react-router-dom";
-import {getUserData} from "../../api/getUserData";
+import {signinURL} from "../../api/env";
+import {signin} from "../../actions/userAction";
 
-const url = 'http://84.201.166.200:8080/api/v1/signin';
-const data = {
-    "email": "lexi@gmail.com",
-    "password": "123"
-};
 
 const Signin = () => {
+    const {user} = useContext(UserContext);
+    const {dispatch} = useContext(UserContext);
 
+    async function handleSubmit(e) {
+        e.preventDefault();
+        let data = {
+            "email": e.target.elements.email.value,
+            "password": e.target.elements.password.value
+        }
+        const response = await fetch(signinURL, {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        const json = await response.json();
+        dispatch(signin(json.data));
+        console.log('Успех:', json);
+    }
+
+    console.log(user);
     return (
         <div className="container left-align">
             <br/><br/>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <div className="row">
                     <div className="col s12 m8 l6 xl6">
                         <div className="card">
