@@ -8,7 +8,6 @@ import {signin} from "../../actions/userAction";
 
 
 const Signin = () => {
-    const {user} = useContext(UserContext);
     const {dispatch} = useContext(UserContext);
 
     async function handleSubmit(e) {
@@ -28,8 +27,6 @@ const Signin = () => {
         dispatch(signin(json.data));
         console.log('Успех:', json);
     }
-
-    console.log(user);
     return (
         <div className="container left-align">
             <br/><br/>

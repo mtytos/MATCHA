@@ -1,6 +1,6 @@
 import {signupURL} from "./env";
 
-export async function GetUserData (data, url) {
+export async function UserAPI (data, url) {
     const response = await fetch(url, {
         method: 'POST',
         body: JSON.stringify(data),

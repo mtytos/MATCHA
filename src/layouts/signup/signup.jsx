@@ -1,6 +1,6 @@
 import React from "react";
 import ButtonForm from "../../components/btn/btn-submit";
-import {CreateUser} from "../../api/getUserData";
+import {CreateUser} from "../../api/userAPI";
 
 const Signup = () => {
 
