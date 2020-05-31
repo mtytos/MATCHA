@@ -3,21 +3,8 @@ import AvatarCard from "../../components/home-item/avatar";
 import AboutCard from "../../components/home-item/about";
 import PhotoCard from "../../components/home-item/photo";
 import NewPhotoCard from "../../components/home-item/addNewPhoto";
-import {getPhotoURL} from "../../api/env";
 
 const Home = () => {
-
-    const photoToGall = async (url = getPhotoURL + '5ecc1f2e9367cd00078f52d1') => {
-        try {
-            const response = await fetch(url);
-            const json = await response.json();
-            console.log('Успех:', json);
-        } catch (error) {
-            console.error('Ошибка:', error);
-        }
-    }
-
-    photoToGall();
 
     return (
         <div className="container left-align">
@@ -48,7 +35,7 @@ const Home = () => {
                 <PhotoCard
                     photo={"https://cdn.sm-news.ru/wp-content/uploads/2019/12/06/wp4455257-1300x675.jpg"}/>
                 <PhotoCard
-                    photo={"http://84.201.166.200:8080/api/media/img/5ecc1f2e9367cd00078f52d1"}/>
+                    photo={"http://84.201.166.200:8080/api/media/img/5ed357a01205360007d8e250"}/>
                 <NewPhotoCard/>
             </div>
         </div>
