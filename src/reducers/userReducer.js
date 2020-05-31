@@ -3,10 +3,15 @@ export const userReducer = (state, action) => {
         case 'GET_USER_DATA':
             return {
                 ...state,
+                status: action.status,
                 data: action.data
             }
-        // case 'REMOVE_USER':
-        //     return state.filter(todo => todo.id !== action.todo.id)
+        case 'LOGOUT':
+            return {
+                ...state,
+                status: false,
+                data: null
+            }
         default:
             return state
     }

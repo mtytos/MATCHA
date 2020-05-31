@@ -11,7 +11,7 @@ const AvatarCard = (props) => {
                         className="material-icons">sms</i></a>
                 </div>
                 <div className="card-content center">
-                    <span className="card-title">{props.name}</span>
+                    <span className="card-title">{props.name}, {props.age}</span>
                     <p>{props.city}, {props.dist} km from you</p>
                 </div>
             </div>

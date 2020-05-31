@@ -1,13 +1,13 @@
-export const signin = (data) => {
+export const signin = (status, data) => {
     return {
         type: 'GET_USER_DATA',
+        status,
         data
     }
 };
 
-export const removeTodo = (todo) => {
+export const logout = () => {
     return {
-        type: 'REMOVE_TODO',
-        todo
+        type: 'LOGOUT',
     }
 };

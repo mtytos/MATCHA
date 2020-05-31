@@ -1,4 +1,5 @@
-import React, {useContext} from "react";
+import React, {useContext, useState} from "react";
+import { Redirect } from "react-router-dom";
 import ButtonForm from "../../components/btn/btn-submit";
 import InputForm from "../../components/input/input-form";
 import {UserContext} from "../../context/UserContext";
@@ -9,6 +10,7 @@ import {signin} from "../../actions/userAction";
 
 const Signin = () => {
     const {dispatch} = useContext(UserContext);
+    const [toHome, setToHome] = useState(false);
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -24,8 +26,11 @@ const Signin = () => {
             }
         });
         const json = await response.json();
-        dispatch(signin(json.data));
+        dispatch(signin(json.status, json.data));
         console.log('Успех:', json);
+        if (json.status === true) {
+            setToHome(true);
+        }
     }
     return (
         <div className="container left-align">
@@ -47,6 +52,7 @@ const Signin = () => {
             </form>
             <br/><br/><br/>
             <p className="someright">if you don't have an account, please, <Link to={'/signup'}> Sign up</Link></p>
+            { toHome ? <Redirect to="/home" /> : null }
         </div>
     );
 }

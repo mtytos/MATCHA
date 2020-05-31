@@ -1,18 +1,21 @@
-import React from "react";
+import React, {useContext} from "react";
+import {UserContext} from "../../context/UserContext";
 import AvatarCard from "../../components/home-item/avatar";
 import AboutCard from "../../components/home-item/about";
 import PhotoCard from "../../components/home-item/photo";
 import NewPhotoCard from "../../components/home-item/addNewPhoto";
 
 const Home = () => {
+    const {user} = useContext(UserContext);
 
     return (
         <div className="container left-align">
             <div className="row">
                 <AvatarCard
-                    ava={"https://24smi.org/public/media/celebrity/2017/12/11/1yughuj5gile-naomi-skott.jpg"}
-                    name={'Kristen'}
-                    city={'Moscow'}
+                    ava={"http://84.201.166.200:8080/api/media/img/5ed357a01205360007d8e250"}
+                    name={user.data.username}
+                    age={user.data.age}
+                    city={user.data.city}
                     dist={9}/>
                 <AboutCard
                     text={"I am a very simple card. I am good at containing small bits of information." +
