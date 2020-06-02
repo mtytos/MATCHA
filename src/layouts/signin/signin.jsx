@@ -6,6 +6,7 @@ import {UserContext} from "../../context/UserContext";
 import {Link} from "react-router-dom";
 import {signinURL} from "../../api/env";
 import {signin} from "../../actions/userAction";
+import {RefreshData} from "../../api/userAPI";
 
 
 const Signin = () => {
@@ -32,6 +33,7 @@ const Signin = () => {
             setToHome(true);
         }
     }
+
     return (
         <div className="container left-align">
             <br/><br/>

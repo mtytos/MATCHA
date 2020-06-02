@@ -1,7 +1,16 @@
-import {signupURL} from "./env";
+import {newDataURL, signinURL, signupURL} from "./env";
+import {signin} from "../actions/userAction";
+import {useContext, useState} from "react";
+import {UserContext} from "../context/UserContext";
 
-export async function UserAPI (data, url) {
-    const response = await fetch(url, {
+export const Login = async () => {
+    const {user, dispatch} = useContext(UserContext);
+
+    let data = {
+        "email": user.data.email,
+        "password": user.data.email
+    }
+    const response = await fetch(signinURL, {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {
@@ -9,7 +18,17 @@ export async function UserAPI (data, url) {
         }
     });
     const json = await response.json();
-    return JSON.stringify(json);
+    dispatch(signin(json.status, json.data));
+    console.log('Успех:', json);
+}
+
+export const RefreshData = async (url = newDataURL) => {
+    const {user} = useContext(UserContext);
+    const response = await fetch(url + user.data.id, {
+        method: 'GET'
+    });
+    const json = await response.json();
+    console.log('Успех:', json);
 }
 
 export const CreateUser = async (e, url = signupURL) => {

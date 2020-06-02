@@ -4,6 +4,7 @@ import AvatarCard from "../../components/home-item/avatar";
 import AboutCard from "../../components/home-item/about";
 import PhotoCard from "../../components/home-item/photo";
 import NewPhotoCard from "../../components/home-item/addNewPhoto";
+import {newDataURL} from "../../api/env";
 
 const Home = () => {
     const {user} = useContext(UserContext);
@@ -12,7 +13,7 @@ const Home = () => {
         <div className="container left-align">
             <div className="row">
                 <AvatarCard
-                    ava={"http://84.201.166.200:8080/api/media/img/5ed357a01205360007d8e250"}
+                    ava={"http://84.201.166.200:8080/api/media/img/5ed546360bf701000727fb4c"}
                     name={user.data.username}
                     age={user.data.age}
                     city={user.data.city}
@@ -38,7 +39,7 @@ const Home = () => {
                 <PhotoCard
                     photo={"https://cdn.sm-news.ru/wp-content/uploads/2019/12/06/wp4455257-1300x675.jpg"}/>
                 <PhotoCard
-                    photo={"http://84.201.166.200:8080/api/media/img/5ed357a01205360007d8e250"}/>
+                    photo={"http://84.201.166.200:8080/api/media/img/5ed546360bf701000727fb4c"}/>
                 <NewPhotoCard/>
             </div>
         </div>

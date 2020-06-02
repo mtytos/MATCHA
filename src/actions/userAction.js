@@ -8,6 +8,6 @@ export const signin = (status, data) => {
 
 export const logout = () => {
     return {
-        type: 'LOGOUT',
+        type: 'LOGOUT'
     }
 };
