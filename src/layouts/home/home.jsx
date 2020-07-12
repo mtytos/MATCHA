@@ -9,6 +9,11 @@ import {newDataURL} from "../../api/env";
 const Home = () => {
     const {user} = useContext(UserContext);
 
+    const socket = new WebSocket("ws://aim-love.ga/ws");
+    socket.onopen = function() {
+        alert("Соединение установлено.");
+    };
+
     return (
         <div className="container left-align">
             <div className="row">

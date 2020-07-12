@@ -47,7 +47,13 @@ export const CreateUser = async (e, url = signupURL) => {
         "max_dist": parseInt(e.target.elements.max_dist.value),
 
         "email": e.target.elements.email.value,
-        "password": e.target.elements.password.value
+        "password": e.target.elements.password.value,
+        "position": {
+            "lat": parseFloat(e.target.elements.lat.value),
+            "lon": parseFloat(e.target.elements.lon.value)
+        }
+        // "lat": e.target.elements.lat.value,
+        // "lon": e.target.elements.lon.value
     }
 
     try {

@@ -1,29 +1,33 @@
-import React from "react";
-import ButtonForm from "../../components/btn/btn-submit";
+import React, {useEffect, useState} from "react";
+import ButtonSubmit from "../../components/btn/btn-submit";
 import {CreateUser} from "../../api/userAPI";
 
 const Signup = () => {
 
-    // const url = 'http://84.201.166.200:8080/api/v1/signup';
-    // const data = {
-    //     "email": "roma@gmail.com",
-    //     "phone": "89998887766",
-    //     "password": "123",
-    //     "username": "Roma",
-    //     "age": 20,
-    //     "gender": "male",
-    //     "country": "Russia",
-    //     "city": "Moscow",
-    //     "max_dist": 50,
-    //     "look_for": "male",
-    //     "min_age": 21,
-    //     "max_age": 30,
-    //     "images":[]
-    // };
+    const [geolocation, setGeolocation] = useState({
+        lat: 0.0,
+        lon: 0.0
+    });
+    const [switcher, setSwitcher] = useState(true);
+
+    useEffect(() => {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            console.log("Latitude is :", position.coords.latitude);
+            console.log("Longitude is :", position.coords.longitude);
+            setGeolocation({
+                ...geolocation,
+                lat: position.coords.latitude,
+                lon: position.coords.longitude
+            });
+            setSwitcher("");
+        });
+        }
+    )
 
     return (
         <div className="container left-align">
             <br/><br/>
+            <p className="someright">*To continue registration, access to geolocation must be allowed.</p>
             <form onSubmit={CreateUser}>
                 <div className="row">
                     <div className="col s12 m8 l6 xl6">
@@ -75,7 +79,11 @@ const Signup = () => {
                                 <div>
                                     <p>
                                         <label>
-                                            <input className="with-gap" name="look_for" type="radio" value="male" defaultChecked/>
+                                            <input className="with-gap" name="look_for" type="radio" value="both" defaultChecked/>
+                                            <span>Both</span>
+                                        </label>
+                                        <label className="someright">
+                                            <input className="with-gap" name="look_for" type="radio" value="male"/>
                                             <span>Male</span>
                                         </label>
                                         <label className="someright">
@@ -116,6 +124,8 @@ const Signup = () => {
                                 <div className="input-field">
                                     <input id="repassword" type="password" name="repassword"/>
                                     <label htmlFor="repassword">Repeat password</label>
+                                    <input type="hidden" name="lat" value={geolocation.lat}/>
+                                    <input type="hidden" name="lon" value={geolocation.lon}/>
                                 </div>
                             </div>
                         </div>
@@ -123,7 +133,7 @@ const Signup = () => {
                 </div>
                 <br/>
                 <p className="someright">*push the button I hereby agree to the Terms of processing of my personal data.</p>
-                <ButtonForm name={'Sign up'}/>
+                <ButtonSubmit name={'Sign up'} switcher={switcher}/>
             </form>
         </div>
     );

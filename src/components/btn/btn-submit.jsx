@@ -4,7 +4,8 @@ const ButtonSubmit = (props) => {
 
     return (
         <div className="container left someright">
-            <button className="btn-large pink accent-3 waves-effect waves-light pulse">{props.name}</button>
+            <button className="btn-large pink accent-3 waves-effect waves-light pulse"
+                    disabled={props.switcher}>{props.name}</button>
         </div>
     );
 }
